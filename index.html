@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: block;
+            width: 80%; /* Decreased width to make the buttons smaller */
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px auto;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .btn:active {
+            background-color: #4CAF50;
+        }
+        .back-link {
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #4CAF50;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        #current-time {
+            font-size: 14px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to the Banking System</h1>
+        <a href="http://localhost:8080/bank_system/file1.html" class="btn">Create Account</a>
+        <a href="http://localhost:8080/bank_system/file2.html" class="btn">Deposit Money</a>
+        <a href="http://localhost:8080/bank_system/file3.html" class="btn">Withdraw Money</a>
+        <a href="http://localhost:8080/bank_system/file4.html" class="btn">Check Balance</a>
+
+        <div class="back-link">
+            <a href="#">Back to Home</a>
+        </div>
+
+        <!-- Current Date and Time Display -->
+        <div id="current-time"></div>
+    </div>
+
+    <script>
+        // Function to format date and time to 12-hour format
+        function formatTime(date) {
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+            let seconds = date.getSeconds();
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // The hour '0' should be '12'
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            let strTime = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+            return strTime;
+        }
+
+        // Display current date and time
+        function displayCurrentTime() {
+            let date = new Date();
+            let currentDate = date.toDateString();
+            let currentTime = formatTime(date);
+            document.getElementById('current-time').innerHTML = currentDate + ' | ' + currentTime;
+        }
+
+        // Call function to update the time
+        setInterval(displayCurrentTime, 1000); // Update every second
+        displayCurrentTime(); // Initial call
+    </script>
+</body>
+</html>
