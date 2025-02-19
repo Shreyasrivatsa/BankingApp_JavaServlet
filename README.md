@@ -1,0 +1,1 @@
+BankingApp-JavaServlet is a sophisticated web-based banking system built with Java Servlets, MySQL, HTML, and CSS. It streamlines core banking operations, including account creation, deposits, withdrawals, and balance inquiries, providing a robust foundation for both learning and real-world applications.
